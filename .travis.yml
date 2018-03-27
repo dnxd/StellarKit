@@ -4,5 +4,11 @@ xcode_project: StellarKit.xcodeproj
 xcode_scheme: StellarKit
 xcode_sdk: iphonesimulator8.4
 
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database core;' -U postgres
+
 script:
   - xcodebuild test -scheme StellarKit -destination 'platform=iOS Simulator,name=iPhone 8 Plus' -only-testing:StellarKitTests/StellarUnitTests

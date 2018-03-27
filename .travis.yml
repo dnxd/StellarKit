@@ -5,7 +5,7 @@ xcode_scheme: StellarKit
 xcode_sdk: iphonesimulator8.4
 
 before_script:
-  - brew services start postgresql
+  - pg_ctl -D /usr/local/var/postgres start
   - psql -c 'create database core;' -U postgres
 
 script:

@@ -4,10 +4,8 @@ xcode_project: StellarKit.xcodeproj
 xcode_scheme: StellarKit
 xcode_sdk: iphonesimulator8.4
 
-services:
-  - postgresql
-
 before_script:
+  - brew services start postgresql
   - psql -c 'create database core;' -U postgres
 
 script:

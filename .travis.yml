@@ -5,7 +5,10 @@ xcode_scheme: StellarKit
 xcode_sdk: iphonesimulator8.4
 
 before_script:
+  - rm -rf /usr/local/var/postgres
+  - initdb /usr/local/var/postgres -E utf8
   - pg_ctl -D /usr/local/var/postgres start
+  - createuser -s postgrest
   - psql -c 'create database core;' -U postgres
 
 script:

@@ -5,11 +5,9 @@ xcode_scheme: StellarKit
 xcode_sdk: iphonesimulator8.4
 
 before_script:
-  - rm -rf /usr/local/var/postgres
-  - initdb /usr/local/var/postgres -E utf8
-  - pg_ctl -D /usr/local/var/postgres start
-  - createuser -s postgres
-  - psql -c 'create database core;' -U postgres
+  - git clone https://github.com/kinfoundation/travis-stellar-core-macos.git
+  - cd travis-stellar-core-macos
+  - ./setup.sh
 
 script:
-  - xcodebuild test -scheme StellarKit -destination 'platform=iOS Simulator,name=iPhone 8 Plus' -only-testing:StellarKitTests/StellarUnitTests
+  - xcodebuild test -scheme StellarKit -destination 'platform=iOS Simulator,name=iPhone 8 Plus'

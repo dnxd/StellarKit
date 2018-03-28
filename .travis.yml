@@ -8,7 +8,7 @@ before_script:
   - rm -rf /usr/local/var/postgres
   - initdb /usr/local/var/postgres -E utf8
   - pg_ctl -D /usr/local/var/postgres start
-  - createuser -s postgrest
+  - createuser -s postgres
   - psql -c 'create database core;' -U postgres
 
 script:

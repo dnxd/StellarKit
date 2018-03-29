@@ -6,8 +6,7 @@ xcode_sdk: iphonesimulator8.4
 
 before_script:
   - git clone https://github.com/kinfoundation/travis-stellar-core-macos.git
-  - cd travis-stellar-core-macos
-  - ./setup.sh
+  - cd travis-stellar-core-macos && ./setup.sh && cd ..
 
 script:
   - xcodebuild test -scheme StellarKit -destination 'platform=iOS Simulator,name=iPhone 8 Plus'
